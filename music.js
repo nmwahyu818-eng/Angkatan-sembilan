@@ -1,197 +1,78 @@
-// ========================================
-// GARDAMAS MUSIC SYSTEM
-// STABLE VERSION
-// ========================================
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const music = document.getElementById("bgMusic");
-    const button = document.getElementById("musicButton");
-    const icon = document.getElementById("musicIcon");
-
-    if (!music || !button) return;
+const bgMusic = document.getElementById("bgMusic");
+const musicButton = document.getElementById("musicButton");
+const musicIcon = document.getElementById("musicIcon");
 
 
-    const TIME_KEY = "gardamas_music_time";
-    const PLAY_KEY = "gardamas_music_playing";
+// Ambil waktu terakhir musik
+const savedTime = localStorage.getItem("musicTime");
+
+if (savedTime) {
+
+    bgMusic.currentTime = parseFloat(savedTime);
+
+}
 
 
-    music.volume = 0.3;
+// Cek apakah musik sebelumnya sedang diputar
+const wasPlaying = localStorage.getItem("musicPlaying");
+
+if (wasPlaying === "true") {
+
+    bgMusic.play().catch(() => {});
+
+    musicIcon.textContent = "♫";
+
+}
 
 
-    // ====================================
-    // UPDATE BUTTON
-    // ====================================
+// Tombol musik
+musicButton.addEventListener("click", () => {
 
-    function updateButton() {
+    if (bgMusic.paused) {
 
-        if (music.paused) {
+        bgMusic.play();
 
-            button.classList.remove("playing");
+        musicIcon.textContent = "♫";
 
-            if (icon) icon.textContent = "♪";
+        localStorage.setItem("musicPlaying", "true");
 
-        } else {
+    } else {
 
-            button.classList.add("playing");
+        bgMusic.pause();
 
-            if (icon) icon.textContent = "Ⅱ";
+        musicIcon.textContent = "♪";
 
-        }
+        localStorage.setItem("musicPlaying", "false");
 
     }
 
-
-    // ====================================
-    // LOAD SAVED TIME
-    // ====================================
-
-    music.addEventListener("loadedmetadata", () => {
-
-        const savedTime = sessionStorage.getItem(TIME_KEY);
-
-        if (savedTime) {
-
-            const time = Number(savedTime);
-
-            if (
-                Number.isFinite(time) &&
-                time >= 0 &&
-                time < music.duration
-            ) {
-
-                music.currentTime = time;
-
-            }
-
-        }
+});
 
 
-        // =================================
-        // AUTO CONTINUE
-        // =================================
+// Simpan waktu musik setiap beberapa saat
+bgMusic.addEventListener("timeupdate", () => {
 
-        if (
-            sessionStorage.getItem(PLAY_KEY) === "true"
-        ) {
-
-            music.play()
-                .then(updateButton)
-                .catch(() => {
-
-                    /*
-                    Browser memblokir autoplay.
-                    Status jangan dihapus.
-                    */
-
-                });
-
-        }
-
-    });
-
-
-    // ====================================
-    // MUSIC BUTTON
-    // ====================================
-
-    button.addEventListener("click", () => {
-
-        if (music.paused) {
-
-            music.play()
-                .then(() => {
-
-                    sessionStorage.setItem(
-                        PLAY_KEY,
-                        "true"
-                    );
-
-                    updateButton();
-
-                });
-
-        } else {
-
-            music.pause();
-
-            sessionStorage.setItem(
-                PLAY_KEY,
-                "false"
-            );
-
-            updateButton();
-
-        }
-
-    });
-
-
-    // ====================================
-    // SAVE TIME
-    // ====================================
-
-    setInterval(() => {
-
-        if (!music.paused) {
-
-            sessionStorage.setItem(
-                TIME_KEY,
-                music.currentTime
-            );
-
-        }
-
-    }, 300);
-
-
-    // ====================================
-    // SAVE BEFORE PAGE CHANGE
-    // ====================================
-
-    document.addEventListener(
-        "visibilitychange",
-        () => {
-
-            if (document.visibilityState === "hidden") {
-
-                sessionStorage.setItem(
-                    TIME_KEY,
-                    music.currentTime
-                );
-
-            }
-
-        }
+    localStorage.setItem(
+        "musicTime",
+        bgMusic.currentTime
     );
-
-
-    window.addEventListener(
-        "pagehide",
-        () => {
-
-            sessionStorage.setItem(
-                TIME_KEY,
-                music.currentTime
-            );
-
-        }
-    );
-
-
-    // ====================================
-    // UPDATE STATUS
-    // ====================================
-
-    music.addEventListener("play", () => {
-
-        sessionStorage.setItem(
-            PLAY_KEY,
-            "true"
-        );
-
-        updateButton();
-
-    });
 
 });
+
+
+// Sebelum pindah halaman
+window.addEventListener("beforeunload", () => {
+
+    localStorage.setItem(
+        "musicTime",
+        bgMusic.currentTime
+    );
+
+
+    localStorage.setItem(
+        "musicPlaying",
+        !bgMusic.paused
+    );
+
+});
+ 
