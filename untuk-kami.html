@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Untuk Kami | GARDAMAS</title>
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="untuk-kami.css">
+
+    <link rel="stylesheet" href="music.css">
+
+
+    <!-- FONT -->
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+    <!-- BACKGROUND -->
+
+    <div class="background"></div>
+
+    <div class="noise"></div>
+
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="navbar">
+
+
+        <a href="index.html"
+            class="logo">
+
+            GARDAMAS
+
+        </a>
+
+
+        <a href="untuk-kalian.html"
+            class="back-button">
+
+            ← Kembali
+
+        </a>
+
+
+    </nav>
+
+
+
+    <!-- HERO -->
+
+    <header class="hero">
+
+
+        <p class="small-title">
+
+            DARI ANGKATAN IX
+
+        </p>
+
+
+        <h1>
+
+            Untuk Kami
+
+        </h1>
+
+
+        <p class="hero-text">
+
+            Sebuah ruang untuk meninggalkan
+            pesan, cerita, dan kata-kata yang
+            mungkin suatu hari akan menjadi
+            kenangan.
+
+        </p>
+
+
+    </header>
+
+
+
+    <!-- MESSAGE FORM -->
+
+    <main class="container">
+
+
+        <section class="form-section">
+
+
+            <div class="section-title">
+
+                <span></span>
+
+                <p>
+
+                    TINGGALKAN PESAN
+
+                </p>
+
+            </div>
+
+
+
+            <form id="messageForm">
+
+
+                <!-- NAMA -->
+
+                <div class="input-group">
+
+
+                    <label for="nameInput">
+
+                        Nama
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="nameInput"
+                        placeholder="Tulis nama kaka/abang..."
+                        maxlength="40"
+                        required
+                    >
+
+
+                </div>
+
+
+
+                <!-- PESAN -->
+
+                <div class="input-group">
+
+
+                    <label for="messageInput">
+
+                        Pesan
+
+                    </label>
+
+
+                    <textarea
+                        id="messageInput"
+                        placeholder="Tuliskan pesan terbaikmu untuk kami..."
+                        maxlength="500"
+                        required
+                    ></textarea>
+
+
+                    <div class="character-count">
+
+                        <span id="characterCount">
+
+                            0
+
+                        </span>
+
+                        / 500
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- BUTTON -->
+
+                <button
+                    type="submit"
+                    id="submitButton"
+                >
+
+
+                    <span id="buttonText">
+
+                        Kirim Pesan
+
+                    </span>
+
+
+                    <span class="button-arrow">
+
+                        →
+
+                    </span>
+
+
+                </button>
+
+
+            </form>
+
+
+        </section>
+
+
+
+        <!-- MESSAGE LIST -->
+
+        <section class="messages-section">
+
+
+            <div class="section-title">
+
+                <span></span>
+
+                <p>
+
+                    PESAN YANG TELAH DITINGGALKAN
+
+                </p>
+
+            </div>
+
+
+
+            <div
+                id="messageList"
+                class="message-list"
+            >
+
+
+                <div class="loading">
+
+                    Memuat pesan...
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+
+        <div class="footer-line"></div>
+
+
+        <p>
+
+            GARDAMAS
+
+        </p>
+
+
+        <span>
+
+            GARUDA MUDA MAN 1 BANYUMAS
+
+        </span>
+
+
+    </footer>
+
+
+
+    <!-- NOTIFICATION -->
+
+    <div
+        id="notification"
+        class="notification"
+    >
+
+        <span id="notificationText">
+
+        </span>
+
+    </div>
+
+
+
+    <!-- GLOBAL MUSIC -->
+
+    <audio
+        id="bgMusic"
+        loop
+        preload="auto"
+    >
+
+        <source
+            src="musik.mp3"
+            type="audio/mpeg"
+        >
+
+    </audio>
+
+
+
+    <button
+        id="musicButton"
+        class="music-button"
+        aria-label="Putar musik"
+    >
+
+        <span id="musicIcon">
+
+            ♪
+
+        </span>
+
+    </button>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script
+        type="module"
+        src="untuk-kami.js"
+    ></script>
+
+
+    <script src="music.js"></script>
+
+
+</body>
+
+</html>

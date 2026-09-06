@@ -1,0 +1,1239 @@
+/* =========================================
+   GARDAMAS - UNTUK KALIAN
+========================================= */
+
+:root {
+    --black: #080808;
+    --dark: #101010;
+    --soft-dark: #171717;
+    --white: #f5f1e8;
+    --gray: #999999;
+    --gold: #c6a15b;
+    --line: rgba(255, 255, 255, 0.1);
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--black);
+    color: var(--white);
+    font-family: "Montserrat", sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 90px;
+
+    padding: 0 7%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid var(--line);
+
+    z-index: 1000;
+
+    transition:
+        background 0.4s ease,
+        backdrop-filter 0.4s ease;
+}
+
+.navbar.scrolled {
+    position: fixed;
+
+    background: rgba(8, 8, 8, 0.96);
+
+    backdrop-filter: blur(15px);
+}
+
+
+/* BRAND */
+
+.brand {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand span {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 27px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+}
+
+.brand small {
+    margin-top: 3px;
+
+    color: var(--gold);
+
+    font-size: 7px;
+
+    letter-spacing: 4px;
+}
+
+
+/* NAVIGATION */
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+
+    gap: 28px;
+}
+
+.navbar nav a {
+    position: relative;
+
+    color: var(--gray);
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    transition: color 0.3s ease;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+    color: var(--gold);
+}
+
+.navbar nav a.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -10px;
+
+    width: 100%;
+    height: 1px;
+
+    background: var(--gold);
+}
+
+
+/* MOBILE MENU */
+
+.menu-button {
+    display: none;
+
+    cursor: pointer;
+
+    background: transparent;
+
+    border: none;
+}
+
+.menu-button span {
+    display: block;
+
+    width: 25px;
+    height: 1px;
+
+    margin: 6px 0;
+
+    background: var(--white);
+}
+
+
+/* =========================================
+   GLOBAL LABEL
+========================================= */
+
+.section-label {
+    display: inline-block;
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    letter-spacing: 3px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 150px 10% 100px;
+
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(198, 161, 91, 0.12),
+            transparent 35%
+        ),
+        linear-gradient(
+            120deg,
+            #080808,
+            #151515
+        );
+}
+
+.hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(8, 8, 8, 0.3),
+            transparent
+        );
+}
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 1100px;
+}
+
+.hero-content h1 {
+    margin: 28px 0 30px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(65px, 9vw, 135px);
+
+    font-weight: 500;
+
+    line-height: 0.88;
+
+    letter-spacing: -2px;
+}
+
+.hero-content em {
+    color: var(--gold);
+
+    font-weight: 400;
+}
+
+.hero-content p {
+    max-width: 560px;
+
+    margin-bottom: 45px;
+
+    color: #a8a8a8;
+
+    font-size: 13px;
+
+    line-height: 2;
+}
+
+.scroll-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid var(--gold);
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    transition: gap 0.3s ease;
+}
+
+.scroll-button:hover {
+    gap: 30px;
+}
+
+.hero-side-text {
+    position: absolute;
+
+    right: -35px;
+    bottom: 120px;
+
+    color: rgba(198, 161, 91, 0.3);
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    transform: rotate(-90deg);
+}
+
+
+/* =========================================
+   OPENING
+========================================= */
+
+.opening {
+    position: relative;
+
+    min-height: 80vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 150px 10%;
+
+    background: var(--dark);
+
+    overflow: hidden;
+}
+
+.opening-number {
+    position: absolute;
+
+    right: 5%;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(250px, 35vw, 550px);
+
+    color: rgba(198, 161, 91, 0.035);
+
+    pointer-events: none;
+}
+
+.opening-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+
+    align-items: center;
+}
+
+.opening-content h2 {
+    margin-top: 25px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(55px, 7vw, 100px);
+
+    font-weight: 500;
+
+    line-height: 0.9;
+}
+
+.opening-text {
+    max-width: 500px;
+}
+
+.opening-text p {
+    margin-bottom: 28px;
+
+    color: var(--gray);
+
+    font-size: 13px;
+
+    line-height: 2.2;
+}
+
+
+/* =========================================
+   LETTER SECTION
+========================================= */
+
+.letter-section {
+    padding: 150px 10%;
+
+    background: var(--black);
+}
+
+.letter-header {
+    max-width: 1000px;
+
+    margin-bottom: 90px;
+
+    /* PENTING: SELALU TERLIHAT */
+    opacity: 1;
+    visibility: visible;
+}
+
+.letter-header h2 {
+    margin-top: 25px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(60px, 8vw, 110px);
+
+    font-weight: 500;
+
+    line-height: 0.88;
+}
+
+
+/* =========================================
+   SURAT UTAMA
+========================================= */
+
+.letter {
+    display: block !important;
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding: 70px;
+
+    background: var(--dark);
+
+    border: 1px solid var(--line);
+
+    /* PENTING AGAR TIDAK KOSONG */
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}
+
+.letter-top {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 30px;
+
+    border-bottom: 1px solid var(--line);
+
+    color: var(--gold);
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+
+/* ISI SURAT */
+
+.letter-body {
+    display: block !important;
+
+    padding: 70px 0 40px;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.letter-body p {
+    display: block;
+
+    margin-bottom: 30px;
+
+    color: #b5b5b5;
+
+    font-size: 14px;
+
+    line-height: 2.3;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.letter-body strong {
+    color: var(--white);
+
+    font-weight: 500;
+}
+
+
+/* PARAGRAF PERTAMA */
+
+.first-paragraph {
+    color: var(--white) !important;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 38px !important;
+
+    font-weight: 500;
+
+    line-height: 1.2 !important;
+}
+
+
+/* QUOTE */
+
+.letter-quote {
+    display: block;
+
+    margin: 70px 0;
+
+    padding: 50px;
+
+    border-left: 1px solid var(--gold);
+
+    color: var(--gold);
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(30px, 4vw, 50px);
+
+    font-weight: 400;
+
+    line-height: 1.15;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+
+/* PARAGRAF AKHIR */
+
+.final-letter {
+    color: var(--white) !important;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 29px !important;
+
+    line-height: 1.55 !important;
+}
+
+
+/* SIGNATURE */
+
+.letter-signature {
+    display: block;
+
+    padding-top: 50px;
+
+    text-align: center;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.signature-line {
+    width: 60px;
+    height: 1px;
+
+    margin: 0 auto 30px;
+
+    background: var(--gold);
+}
+
+.letter-signature p {
+    color: var(--gray);
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+.letter-signature h3 {
+    margin: 20px 0 8px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 50px;
+
+    font-weight: 500;
+}
+
+.letter-signature span {
+    color: var(--gold);
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+}
+
+
+/* =========================================
+   TRANSITION
+========================================= */
+
+.transition-section {
+    min-height: 80vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 120px 10%;
+
+    text-align: center;
+
+    background: var(--soft-dark);
+}
+
+.transition-content {
+    max-width: 1000px;
+}
+
+.big-quote {
+    display: block;
+
+    height: 100px;
+
+    color: var(--gold);
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 130px;
+
+    line-height: 1;
+}
+
+.transition-content h2 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(50px, 6vw, 85px);
+
+    font-weight: 500;
+
+    line-height: 0.95;
+}
+
+.transition-content p {
+    max-width: 550px;
+
+    margin: 40px auto 0;
+
+    color: var(--gray);
+
+    font-size: 13px;
+
+    line-height: 2;
+}
+
+
+/* =========================================
+   THANKS SECTION
+========================================= */
+
+.thanks-section {
+    padding: 150px 10%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 120px;
+
+    align-items: center;
+
+    background: var(--black);
+}
+
+.thanks-left h2 {
+    margin-top: 25px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(55px, 7vw, 100px);
+
+    font-weight: 500;
+
+    line-height: 0.9;
+}
+
+.thanks-right {
+    max-width: 500px;
+}
+
+.thanks-right p {
+    margin-bottom: 25px;
+
+    color: var(--gray);
+
+    font-size: 13px;
+
+    line-height: 2.2;
+}
+
+.small-line {
+    width: 60px;
+    height: 1px;
+
+    margin: 40px 0;
+
+    background: var(--gold);
+}
+
+.thanks-right span {
+    color: var(--gold);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    line-height: 2;
+}
+
+
+/* =========================================
+   CLOSING
+========================================= */
+
+.closing {
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 120px 10%;
+
+    text-align: center;
+
+    background: var(--dark);
+
+    overflow: hidden;
+}
+
+.closing-bg-text {
+    position: absolute;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(350px, 50vw, 800px);
+
+    color: rgba(198, 161, 91, 0.035);
+
+    pointer-events: none;
+}
+
+.closing-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 1000px;
+}
+
+.closing-content h2 {
+    margin: 30px 0;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(60px, 8vw, 120px);
+
+    font-weight: 500;
+
+    line-height: 0.88;
+}
+
+.closing-content em {
+    color: var(--gold);
+
+    font-weight: 400;
+}
+
+.closing-content p {
+    max-width: 600px;
+
+    margin: 0 auto 20px;
+
+    color: var(--gray);
+
+    font-size: 13px;
+
+    line-height: 2;
+}
+
+.closing-line {
+    width: 60px;
+    height: 1px;
+
+    margin: 45px auto;
+
+    background: var(--gold);
+}
+
+.closing-signature {
+    color: var(--gold);
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    line-height: 2;
+}
+
+
+/* =========================================
+   NEXT PAGE
+========================================= */
+
+.next-section {
+    min-height: 75vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 120px 10%;
+
+    background: var(--black);
+}
+
+.next-section h2 {
+    margin: 25px 0;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(55px, 7vw, 100px);
+
+    font-weight: 500;
+
+    line-height: 0.9;
+}
+
+.next-section p {
+    max-width: 500px;
+
+    color: var(--gray);
+
+    font-size: 13px;
+
+    line-height: 2;
+}
+
+.next-button {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 60px;
+
+    padding: 30px 0;
+
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+
+    color: var(--gold);
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(35px, 5vw, 70px);
+
+    transition:
+        padding 0.4s ease,
+        background 0.4s ease;
+}
+
+.next-button:hover {
+    padding-left: 25px;
+
+    background: rgba(198, 161, 91, 0.03);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    padding: 70px 8%;
+
+    text-align: center;
+
+    background: #050505;
+}
+
+footer a {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 40px;
+
+    letter-spacing: 4px;
+}
+
+footer p {
+    margin-top: 10px;
+
+    color: var(--gray);
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+}
+
+footer div {
+    width: 60px;
+    height: 1px;
+
+    margin: 30px auto;
+
+    background: var(--gold);
+}
+
+footer span {
+    color: var(--gold);
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+/* Default semua elemen LANGSUNG terlihat */
+
+.reveal {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+/* Class active tetap didukung */
+
+.reveal.active {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 0 6%;
+    }
+
+    .navbar nav {
+        position: fixed;
+
+        top: 90px;
+        left: 0;
+
+        width: 100%;
+        height: calc(100vh - 90px);
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+        gap: 35px;
+
+        background: var(--black);
+
+        transform: translateX(100%);
+
+        transition: transform 0.5s ease;
+    }
+
+    .navbar nav.show {
+        transform: translateX(0);
+    }
+
+    .navbar nav a {
+        font-size: 13px;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .opening-content {
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+    }
+
+    .thanks-section {
+        grid-template-columns: 1fr;
+
+        gap: 70px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        height: 75px;
+
+        padding: 0 7%;
+    }
+
+    .navbar nav {
+        top: 75px;
+
+        height: calc(100vh - 75px);
+    }
+
+    .brand span {
+        font-size: 22px;
+    }
+
+    .brand small {
+        font-size: 6px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: 100svh;
+
+        padding: 130px 7% 80px;
+    }
+
+    .hero-content h1 {
+        font-size: 58px;
+
+        letter-spacing: -1px;
+    }
+
+    .hero-content p {
+        font-size: 12px;
+
+        line-height: 2;
+    }
+
+    .hero-side-text {
+        display: none;
+    }
+
+
+    /* OPENING */
+
+    .opening {
+        padding: 100px 7%;
+    }
+
+    .opening-content {
+        gap: 50px;
+    }
+
+    .opening-content h2 {
+        font-size: 58px;
+    }
+
+    .opening-text p {
+        font-size: 12px;
+    }
+
+
+    /* LETTER */
+
+    .letter-section {
+        padding: 100px 7%;
+    }
+
+    .letter-header {
+        margin-bottom: 60px;
+    }
+
+    .letter-header h2 {
+        font-size: 60px;
+    }
+
+    .letter {
+        padding: 35px 22px;
+    }
+
+    .letter-top {
+        gap: 15px;
+
+        font-size: 6px;
+    }
+
+    .letter-body {
+        padding: 50px 0 30px;
+    }
+
+    .letter-body p {
+        font-size: 12px;
+
+        line-height: 2.2;
+    }
+
+    .first-paragraph {
+        font-size: 32px !important;
+    }
+
+    .letter-quote {
+        margin: 50px 0;
+
+        padding: 30px 20px;
+
+        font-size: 30px;
+    }
+
+    .final-letter {
+        font-size: 24px !important;
+    }
+
+    .letter-signature h3 {
+        font-size: 42px;
+    }
+
+
+    /* TRANSITION */
+
+    .transition-section {
+        min-height: 65vh;
+
+        padding: 100px 7%;
+    }
+
+    .big-quote {
+        font-size: 100px;
+    }
+
+    .transition-content h2 {
+        font-size: 48px;
+    }
+
+
+    /* THANKS */
+
+    .thanks-section {
+        padding: 100px 7%;
+    }
+
+    .thanks-left h2 {
+        font-size: 58px;
+    }
+
+    .thanks-right p {
+        font-size: 12px;
+    }
+
+
+    /* CLOSING */
+
+    .closing {
+        min-height: 85vh;
+
+        padding: 100px 7%;
+    }
+
+    .closing-content h2 {
+        font-size: 60px;
+    }
+
+    .closing-content p {
+        font-size: 12px;
+    }
+
+
+    /* NEXT */
+
+    .next-section {
+        min-height: 70vh;
+
+        padding: 100px 7%;
+    }
+
+    .next-section h2 {
+        font-size: 58px;
+    }
+
+    .next-section p {
+        font-size: 12px;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+        padding: 60px 7%;
+    }
+
+    footer a {
+        font-size: 32px;
+    }
+
+    footer p,
+    footer span {
+        font-size: 7px;
+    }
+
+}

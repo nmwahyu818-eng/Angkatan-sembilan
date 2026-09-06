@@ -1,0 +1,942 @@
+/* =========================================
+   GARDAMAS IX × X — UNTUK KAMI
+   DESIGN SYSTEM
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+
+/* =========================================
+   ROOT
+========================================= */
+
+:root {
+
+    --bg: #08090b;
+    --bg-soft: #0c0d10;
+
+    --white: #f0efec;
+    --white-soft: #a7a7aa;
+
+    --gold: #c9a563;
+    --gold-light: #d7b675;
+
+    --border: rgba(255, 255, 255, 0.10);
+
+    --serif: "Cormorant Garamond", serif;
+    --sans: "Montserrat", sans-serif;
+
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    background: var(--bg);
+
+    color: var(--white);
+
+    font-family: var(--sans);
+
+    overflow-x: hidden;
+
+    min-height: 100vh;
+
+}
+
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -3;
+
+    background:
+
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(201, 165, 99, 0.035),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #08090b,
+            #090a0d
+        );
+
+}
+
+
+.noise {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -2;
+
+    opacity: 0.025;
+
+    background-image:
+        url("https://grainy-gradients.vercel.app/noise.svg");
+
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+
+    width: 100%;
+
+    padding:
+        52px
+        clamp(28px, 6vw, 70px);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    border-bottom:
+        1px solid var(--border);
+
+}
+
+
+.logo {
+
+    text-decoration: none;
+
+    color: var(--white);
+
+    font-family: var(--serif);
+
+    font-size:
+        clamp(2.4rem, 5vw, 4rem);
+
+    font-weight: 500;
+
+    letter-spacing: 0.08em;
+
+    line-height: 0.8;
+
+}
+
+
+.logo::after {
+
+    content: "IX × X";
+
+    display: block;
+
+    margin-top: 18px;
+
+    color: var(--gold);
+
+    font-family: var(--sans);
+
+    font-size: 0.65rem;
+
+    font-weight: 400;
+
+    letter-spacing: 0.8em;
+
+}
+
+
+.back-button {
+
+    margin-top: 18px;
+
+    color: var(--white);
+
+    text-decoration: none;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 0.18em;
+
+    text-transform: uppercase;
+
+    opacity: 0.7;
+
+    transition: 0.3s ease;
+
+}
+
+
+.back-button:hover {
+
+    opacity: 1;
+
+    color: var(--gold);
+
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+
+    max-width: 1100px;
+
+    margin:
+        0 auto;
+
+    padding:
+
+        clamp(90px, 12vw, 160px)
+        clamp(30px, 6vw, 70px)
+        100px;
+
+}
+
+
+.small-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 24px;
+
+    color: var(--gold);
+
+    font-size: 0.75rem;
+
+    font-weight: 400;
+
+    letter-spacing: 0.45em;
+
+    text-transform: uppercase;
+
+    margin-bottom: 65px;
+
+}
+
+
+.small-title::before {
+
+    content: "";
+
+    width: 70px;
+
+    height: 1px;
+
+    background: var(--gold);
+
+}
+
+
+.hero h1 {
+
+    max-width: 800px;
+
+    font-family: var(--serif);
+
+    font-size:
+        clamp(5rem, 12vw, 10rem);
+
+    font-weight: 500;
+
+    line-height: 0.78;
+
+    letter-spacing: -0.04em;
+
+    text-transform: uppercase;
+
+    margin-bottom: 70px;
+
+}
+
+
+.hero h1::first-letter {
+
+    color: var(--gold);
+
+}
+
+
+.hero-text {
+
+    max-width: 650px;
+
+    color: var(--white-soft);
+
+    font-size:
+        clamp(0.95rem, 2vw, 1.15rem);
+
+    line-height: 2;
+
+    letter-spacing: 0.02em;
+
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.container {
+
+    width: min(1100px, 100%);
+
+    margin: auto;
+
+    padding:
+        0 clamp(30px, 6vw, 70px);
+
+}
+
+
+/* =========================================
+   SECTION
+========================================= */
+
+.form-section,
+.messages-section {
+
+    margin-bottom: 130px;
+
+}
+
+
+.section-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    margin-bottom: 50px;
+
+}
+
+
+.section-title span {
+
+    width: 60px;
+
+    height: 1px;
+
+    background: var(--gold);
+
+}
+
+
+.section-title p {
+
+    color: var(--gold);
+
+    font-size: 0.7rem;
+
+    font-weight: 400;
+
+    letter-spacing: 0.4em;
+
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+form {
+
+    padding:
+        clamp(30px, 5vw, 65px);
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(255, 255, 255, 0.015);
+
+}
+
+
+.input-group {
+
+    margin-bottom: 45px;
+
+}
+
+
+label {
+
+    display: block;
+
+    margin-bottom: 16px;
+
+    color: var(--white);
+
+    font-size: 0.7rem;
+
+    letter-spacing: 0.2em;
+
+    text-transform: uppercase;
+
+}
+
+
+input,
+textarea {
+
+    width: 100%;
+
+    border: none;
+
+    border-bottom:
+        1px solid var(--border);
+
+    background: transparent;
+
+    outline: none;
+
+    color: var(--white);
+
+    padding:
+        15px 0;
+
+    font-family: var(--sans);
+
+    font-size: 0.95rem;
+
+    transition: 0.3s ease;
+
+}
+
+
+input:focus,
+textarea:focus {
+
+    border-color: var(--gold);
+
+}
+
+
+input::placeholder,
+textarea::placeholder {
+
+    color:
+        rgba(255,255,255,0.25);
+
+}
+
+
+textarea {
+
+    min-height: 180px;
+
+    resize: vertical;
+
+    line-height: 1.9;
+
+}
+
+
+.character-count {
+
+    margin-top: 12px;
+
+    text-align: right;
+
+    color:
+        rgba(255,255,255,0.3);
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.1em;
+
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+#submitButton {
+
+    width: 100%;
+
+    min-height: 75px;
+
+    border: none;
+
+    background: var(--gold);
+
+    color: #111;
+
+    font-family: var(--sans);
+
+    font-size: 0.72rem;
+
+    font-weight: 500;
+
+    letter-spacing: 0.35em;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    transition: 0.35s ease;
+
+}
+
+
+#submitButton:hover {
+
+    background: var(--gold-light);
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+#submitButton:disabled {
+
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+}
+
+
+.button-arrow {
+
+    font-size: 1.2rem;
+
+    transition: 0.3s ease;
+
+}
+
+
+#submitButton:hover .button-arrow {
+
+    transform:
+        translateX(8px);
+
+}
+
+
+/* =========================================
+   MESSAGE LIST
+========================================= */
+
+.message-list {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.message-card {
+
+    position: relative;
+
+    padding:
+        45px 40px;
+
+    min-height: 230px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(255,255,255,0.015);
+
+    transition: 0.4s ease;
+
+}
+
+
+.message-card:hover {
+
+    border-color:
+        rgba(201,165,99,0.45);
+
+    transform:
+        translateY(-5px);
+
+}
+
+
+/* GOLD LINE */
+
+.message-card::before {
+
+    content: "";
+
+    display: block;
+
+    width: 35px;
+
+    height: 1px;
+
+    margin-bottom: 30px;
+
+    background: var(--gold);
+
+}
+
+
+.message-name {
+
+    margin-bottom: 20px;
+
+    color: var(--white);
+
+    font-family: var(--serif);
+
+    font-size: 2rem;
+
+    font-weight: 500;
+
+}
+
+
+.message-text {
+
+    color: var(--white-soft);
+
+    font-size: 0.82rem;
+
+    line-height: 1.9;
+
+    white-space: pre-wrap;
+
+}
+
+
+.message-date {
+
+    margin-top: 30px;
+
+    color:
+        rgba(255,255,255,0.3);
+
+    font-size: 0.6rem;
+
+    letter-spacing: 0.12em;
+
+}
+
+
+/* =========================================
+   LOADING / EMPTY
+========================================= */
+
+.loading,
+.empty-message {
+
+    grid-column: 1 / -1;
+
+    padding:
+        80px 30px;
+
+    border:
+        1px solid var(--border);
+
+    color: var(--white-soft);
+
+    text-align: center;
+
+    font-family: var(--serif);
+
+    font-size: 1.5rem;
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    margin-top: 80px;
+
+    padding:
+        80px 30px
+        50px;
+
+    border-top:
+        1px solid var(--border);
+
+    text-align: center;
+
+}
+
+
+.footer-line {
+
+    width: 1px;
+
+    height: 50px;
+
+    margin:
+        0 auto
+        25px;
+
+    background: var(--gold);
+
+}
+
+
+footer p {
+
+    font-family: var(--serif);
+
+    font-size: 1.8rem;
+
+    font-weight: 500;
+
+    letter-spacing: 0.15em;
+
+    margin-bottom: 14px;
+
+}
+
+
+footer span {
+
+    color: var(--white-soft);
+
+    font-size: 0.6rem;
+
+    letter-spacing: 0.4em;
+
+}
+
+
+/* =========================================
+   NOTIFICATION
+========================================= */
+
+.notification {
+
+    position: fixed;
+
+    bottom: 35px;
+
+    left: 50%;
+
+    transform:
+        translate(-50%, 150px);
+
+    padding:
+        18px 30px;
+
+    background: #111216;
+
+    border:
+        1px solid var(--gold);
+
+    color: var(--white);
+
+    font-size: 0.75rem;
+
+    letter-spacing: 0.08em;
+
+    z-index: 999;
+
+    opacity: 0;
+
+    transition: 0.4s ease;
+
+}
+
+
+.notification.show {
+
+    transform:
+        translate(-50%, 0);
+
+    opacity: 1;
+
+}
+
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+.hero,
+.form-section,
+.messages-section {
+
+    animation:
+        fadeUp 1s ease both;
+
+}
+
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+
+        padding:
+            40px 30px;
+
+    }
+
+
+    .logo {
+
+        font-size: 2.6rem;
+
+    }
+
+
+    .hero {
+
+        padding-top: 90px;
+
+    }
+
+
+    .small-title {
+
+        gap: 15px;
+
+        font-size: 0.58rem;
+
+        letter-spacing: 0.3em;
+
+        margin-bottom: 45px;
+
+    }
+
+
+    .small-title::before {
+
+        width: 45px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 5.3rem;
+
+        margin-bottom: 55px;
+
+    }
+
+
+    .hero-text {
+
+        line-height: 1.9;
+
+    }
+
+
+    .message-list {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .message-card {
+
+        padding: 35px 30px;
+
+    }
+
+
+    .section-title p {
+
+        font-size: 0.58rem;
+
+        letter-spacing: 0.25em;
+
+    }
+
+
+    .section-title span {
+
+        width: 40px;
+
+    }
+
+}
